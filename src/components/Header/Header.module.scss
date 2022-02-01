@@ -1,0 +1,35 @@
+.header {
+  grid-area: header;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+
+  p {
+    font-family: 'Roboto';
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  button {
+    padding: 13px 15px;
+    border: 1px solid #5db1ff;
+    border-radius: 100%;
+    background-color: #5db1ff;
+    color: #ffffff;
+    transition: background-color .2s linear;
+
+    &:hover {
+      background-color: darken(#2997fd, 5%);
+    }
+
+    &:active {
+      background-color: darken(#2997fd, 20%);
+      box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

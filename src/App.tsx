@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, useState } from 'react'
+import SideBar from './components/SideBar/SideBar'
+import Header from './components/Header/Header'
+import styles from './App.module.scss'
+import { Routes, Route} from "react-router-dom"
+import Modal from './components/Modal/Modal'
+import { useFetchAllTasksQuery } from './redux/API'
+import CardsGrid from './components/CardsGrid/CardsGrid'
 
-function App() {
+const App: FC = () => {
+
+  const { data, isLoading, error } = useFetchAllTasksQuery('')
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen)
+  }
+
+  if (isLoading) {
+    return <div className={styles.loading}>Loading...</div>
+  }
+
+  if (error && 'data' in error) {
+    return <div className={styles.error}>Error status is {error.status}</div>
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.content}>
+      <SideBar data={data}/>
+      <div className={styles.container}>
+        <Header
+          toggleModal={toggleModal}
+        />
+        <Routes>
+          <Route path="/" element={<CardsGrid data={data}/>}/>
+        </Routes>
+      </div>
+      {modalOpen && 
+        <Modal 
+          toggleModal={toggleModal} 
+          modalOpen={modalOpen}
+          data={data}
+        />
+      }
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,33 @@
+.content {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: minmax(300px, auto) 1fr;
+  grid-template-areas: 
+    "sidebar main"
+  ;
+
+  .container {
+    grid-area: main;
+    display: grid;
+    grid-template: minmax(100px, 100px) 1fr / 1fr;
+    grid-template-areas: 
+    "header"
+    "container"
+    ;
+    grid-gap: 15px 0px;
+    padding: 0px 25px;
+  }
+}
+
+.loading, 
+.error {
+  font-style: 30px;
+  font-weight: 700;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

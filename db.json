@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "subjectTitle": "Home",
+      "taskDescription": "Fix the door and chair",
+      "color": "#6AF016",
+      "id": 2
+    },
+    {
+      "subjectTitle": "Work",
+      "taskDescription": "End the code for project",
+      "color": "#F2AB90",
+      "id": 3
+    },
+    {
+      "subjectTitle": "Home",
+      "taskDescription": "Clean the snow",
+      "color": "#6AF016",
+      "id": 4
+    },
+    {
+      "subjectTitle": "Hospital",
+      "taskDescription": "Take blood tests",
+      "color": "#8A02A4",
+      "id": 5
+    }
+  ]
+}
